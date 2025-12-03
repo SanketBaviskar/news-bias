@@ -61,29 +61,18 @@ python train_fair_model.py
 ```
 
 This script will:
-
-1.  Load `Dataset.csv`.
-2.  Compute fairness weights using AIF360's Reweighing algorithm.
-3.  Train the LSTM model using these weights.
-4.  Save the model to `News_Bias_Fair.h5`.
-
-### 2. Run the Web Application
-
-Start the Flask server:
-
-```bash
-python app.py
-```
-
-Open your browser and navigate to `http://127.0.0.1:5000/`.
-
-### 3. Check Bias Metrics
-
-To see the fairness metrics of the dataset:
-
-```bash
 python bias_detection.py
+
 ```
+
+### 3. User Guide
+
+Once the application is deployed (e.g., on Railway), users can access it via the provided public URL.
+
+1.  **Open the App**: Navigate to the URL (e.g., `https://your-project.up.railway.app`).
+2.  **Input News**: Copy and paste the text of a news article into the text area.
+3.  **Check Bias**: Click the **"Check Bias"** button.
+4.  **View Result**: The application will display whether the news is **Biased** or **Not Biased** based on the analysis.
 
 ## Technical Details
 
@@ -100,3 +89,4 @@ python bias_detection.py
 -   `train_fair_model.py`: Script to train the model with AIF360 weights.
 -   `Dataset.csv`: The dataset used for training.
 -   `News_Bias_Fair.h5`: The trained fair model.
+```
