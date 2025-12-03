@@ -57,12 +57,15 @@ def predict():
         prediction = model.predict(processed_input)
 
         # Interpret prediction
-        if prediction[0][0] >= 0.5:
+        confidence = float(prediction[0][0])
+        if confidence >= 0.5:
             result = "The news is biased."
+            explanation = "The model detected patterns often associated with biased reporting."
         else:
             result = "The news is not biased."
+            explanation = "The model did not detect significant bias in the text."
 
-        return render_template('index.html', prediction_text=result, news_text=news_text)
+        return render_template('index.html', prediction_text=result, news_text=news_text, confidence=confidence, explanation=explanation)
 
 if __name__ == '__main__':
     app.run(debug=True)
