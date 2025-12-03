@@ -1,4 +1,4 @@
-# Project Link :-> https://news-bias-production.up.railway.app
+# Project Link :-> [https://news-bias-production.up.railway.app](https://detect-news-bias.up.railway.app/)
 
 # News Bias Detection with IBM AIF360
 
