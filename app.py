@@ -12,7 +12,9 @@ from tensorflow.keras.preprocessing.text import one_hot
 try:
     nltk.data.find('corpora/stopwords')
 except LookupError:
-    nltk.download('stopwords')
+    nltk.download('stopwords', quiet=True)
+
+STOPWORDS = set(stopwords.words('english'))
 
 app = Flask(__name__)
 
@@ -34,7 +36,7 @@ def preprocess_input(text):
     review = re.sub('[^a-zA-Z]', ' ', text)
     review = review.lower()
     review = review.split()
-    review = [ps.stem(word) for word in review if not word in stopwords.words('english')]
+    review = [ps.stem(word) for word in review if not word in STOPWORDS]
     review = ' '.join(review)
     onehot_repr = [one_hot(review, vocab_size)]
     embedded_docs = pad_sequences(onehot_repr, padding='pre', maxlen=sent_length)
@@ -44,6 +46,10 @@ def preprocess_input(text):
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/health')
+def health():
+    return "OK", 200
 
 @app.route('/predict', methods=['POST'])
 def predict():
