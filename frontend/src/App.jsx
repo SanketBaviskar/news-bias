@@ -19,8 +19,7 @@ function App() {
 				`${
 					import.meta.env.VITE_API_URL || "http://localhost:5000"
 				}/predict`,
-				{ news_text: text },
-				{ headers: { "Content-Type": "multipart/form-data" } }
+				{ news_text: text }
 			);
 			setResult(response.data);
 		} catch (err) {
