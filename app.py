@@ -8,6 +8,12 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from tensorflow.keras.preprocessing.text import one_hot
 
+# Download stopwords
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
 app = Flask(__name__)
 
 # Load the saved model
