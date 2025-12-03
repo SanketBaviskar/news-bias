@@ -11,7 +11,12 @@ from tensorflow.keras.preprocessing.text import one_hot
 app = Flask(__name__)
 
 # Load the saved model
-model = load_model('News_Bias.h5')
+try:
+    model = load_model('News_Bias_Fair.h5')
+    print("Loaded fair model: News_Bias_Fair.h5")
+except:
+    print("Fair model not found, loading original model.")
+    model = load_model('News_Bias.h5')
 
 # Function to preprocess input text
 def preprocess_input(text):
