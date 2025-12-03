@@ -19,16 +19,17 @@ How the Media Covered It: Outlets on the left characterized the comments as anti
 def test_prediction():
     url = 'http://127.0.0.1:5000/predict'
     try:
-        response = requests.post(url, data={'news_text': news_text})
+        response = requests.post(url, json={'news_text': news_text})
         if response.status_code == 200:
             print("Request successful!")
-            # Extract prediction from HTML (simple check)
-            if "The news is biased" in response.text:
-                print("Prediction: The news is biased.")
-            elif "The news is not biased" in response.text:
-                print("Prediction: The news is not biased.")
-            else:
-                print("Could not parse prediction from response.")
+            # Extract prediction from JSON
+            try:
+                data = response.json()
+                print(f"Prediction: {data.get('prediction_text')}")
+                print(f"Confidence: {data.get('confidence')}")
+                print(f"Explanation: {data.get('explanation')}")
+            except Exception as e:
+                print(f"Could not parse JSON response: {e}")
         else:
             print(f"Request failed with status code: {response.status_code}")
             print(response.text)
