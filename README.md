@@ -18,21 +18,21 @@ The application analyzes news articles to determine if they are biased or non-bi
 
 ```mermaid
 graph TD
-    A[Raw Dataset (Dataset.csv)] --> B[Data Processing];
-    B --> C{Bias Detection};
-    C -->|Extract Outlet| D[Define Protected Attribute];
-    D --> E[Compute Fairness Metrics];
-    E --> F[Disparate Impact / Statistical Parity];
+    A["Raw Dataset (Dataset.csv)"] --> B["Data Processing"];
+    B --> C{"Bias Detection"};
+    C -->|Extract Outlet| D["Define Protected Attribute"];
+    D --> E["Compute Fairness Metrics"];
+    E --> F["Disparate Impact / Statistical Parity"];
 
-    B --> G[Bias Mitigation (Reweighing)];
-    G --> H[Compute Sample Weights];
-    H --> I[Train LSTM Model];
-    I --> J[Fair Model (News_Bias_Fair.h5)];
+    B --> G["Bias Mitigation (Reweighing)"];
+    G --> H["Compute Sample Weights"];
+    H --> I["Train LSTM Model"];
+    I --> J["Fair Model (News_Bias_Fair.h5)"];
 
-    K[User Input] --> L[Web App (Flask)];
-    L --> M[Preprocess Text];
-    M --> N[Load Fair Model];
-    N --> O[Prediction];
+    K["User Input"] --> L["Web App (Flask)"];
+    L --> M["Preprocess Text"];
+    M --> N["Load Fair Model"];
+    N --> O["Prediction"];
 ```
 
 ## Installation
