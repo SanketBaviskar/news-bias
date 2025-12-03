@@ -143,20 +143,6 @@
 				to {
 					opacity: 1;
 					transform: translateY(0);
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<h1>News Bias Detection</h1>
-			<form action="/predict" method="post">
-				<label for="news_text">Enter News Article:</label>
-				<textarea
-					id="news_text"
-					name="news_text"
-					placeholder="Paste your news article here..."
-					required
 				>
 {{ news_text if news_text else '' }}</textarea
 				>

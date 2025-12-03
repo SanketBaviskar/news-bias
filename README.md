@@ -69,7 +69,7 @@ python bias_detection.py
 
 Once the application is deployed (e.g., on Railway), users can access it via the provided public URL.
 
-1.  **Open the App**: Navigate to the URL (e.g., `https://your-project.up.railway.app`).
+1.  **Open the App**: Navigate to the URL (e.g., `https://news-bias-production.up.railway.app/`).
 2.  **Input News**: Copy and paste the text of a news article into the text area.
 3.  **Check Bias**: Click the **"Check Bias"** button.
 4.  **View Result**: The application will display whether the news is **Biased** or **Not Biased** based on the analysis.
